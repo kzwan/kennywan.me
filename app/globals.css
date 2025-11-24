@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Applies font smoothing globally for better text rendering */
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
