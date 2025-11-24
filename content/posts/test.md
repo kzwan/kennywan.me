@@ -8,7 +8,7 @@ tags: "nextjs, blog"
 featured: "yes"
 ---
 
-# Hello World!
+# Hello World! HI
 
 This is my first blog post. Welcome to my blog built with Next.js and Contentlayer.
 
@@ -19,3 +19,4 @@ This is my first blog post. Welcome to my blog built with Next.js and Contentlay
 - Fast static generation
 
 More content coming soon!
+HIHIHIH
