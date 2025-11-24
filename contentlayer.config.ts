@@ -98,7 +98,7 @@ export const Project = defineDocumentType(() => ({
 
 export default makeSource({
     contentDirPath: 'content',
-    documentTypes: [Post],
+    documentTypes: [Post, Project],
     markdown: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [
