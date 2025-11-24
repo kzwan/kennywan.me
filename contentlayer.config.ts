@@ -52,6 +52,50 @@ export const Post = defineDocumentType(() => ({
   },
 }))
 
+export const Project = defineDocumentType(() => ({
+    name: 'Project',
+    filePathPattern: `projects/**/*.md`,
+    contentType: 'markdown',
+    fields: {
+      title: {
+        type: 'string',
+        required: true,
+      },
+      description: {
+        type: 'string',
+        required: true,
+      },
+      publishedAt: {
+        type: 'date',
+        required: true,
+      },
+      status: {
+        type: 'string',
+        required: true,
+      },
+      slug: {
+        type: 'string',
+        required: true,
+      },
+      coverImage: {
+        type: 'string',
+        required: false,
+      },
+      technologies: {
+        type: 'string',
+        required: false,
+      },
+      github: {
+        type: 'string',
+        required: false,
+      },
+      link: {
+        type: 'string',
+        required: false,
+      },
+    }
+  }))
+
 export default makeSource({
     contentDirPath: 'content',
     documentTypes: [Post],
