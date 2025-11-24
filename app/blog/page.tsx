@@ -1,6 +1,5 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
-import Link from 'next/link'
 import { PostCard } from '../components/post-card'
 
 export const metadata = {

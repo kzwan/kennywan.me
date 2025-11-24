@@ -1,8 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useSession } from 'next-auth/react'
 
-const navLinks = [
+const baseNavLinks = [
   { href: '/', title: 'Home' },
   { href: '/blog', title: 'Blog' },
   { href: '/projects', title: 'Projects' },
@@ -10,6 +11,11 @@ const navLinks = [
 
 export function Header() {
   const pathname = usePathname()
+  const { data: session } = useSession()
+
+  const navLinks = session 
+    ? [...baseNavLinks, { href: '/admin', title: 'Admin' }]
+    : baseNavLinks
 
   return (
     <header className="py-10">
