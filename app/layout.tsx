@@ -1,5 +1,6 @@
 import './globals.css'
 import { Karla } from 'next/font/google'
+import { Header } from './components/header'
 
 const karla = Karla({ subsets: ['latin'] })
 
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${karla.className}`}>
+        <Header/>
         {children}
       </body>
     </html>
