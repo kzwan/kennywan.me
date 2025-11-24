@@ -1,4 +1,8 @@
 import { defineDocumentType, makeSource } from 'contentlayer2/source-files'
+import rehypePrism from 'rehype-prism-plus'
+import remarkGfm from 'remark-gfm'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -49,6 +53,14 @@ export const Post = defineDocumentType(() => ({
 }))
 
 export default makeSource({
-  contentDirPath: 'content',
-  documentTypes: [Post],
+    contentDirPath: 'content',
+    documentTypes: [Post],
+    markdown: {
+        remarkPlugins: [remarkGfm],
+        rehypePlugins: [
+        rehypeSlug,
+        rehypeAutolinkHeadings,
+        rehypePrism,
+        ]
+    },
 })
