@@ -27,5 +27,5 @@ for i in range(1, 2):
     print(i)
 ```
 
-![Test image](DSC00136.JPG)
+![Test image](/images/DSC00136.JPG)
 
