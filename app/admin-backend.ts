@@ -94,3 +94,32 @@ export async function deletePost(fileName: string, sha: string) {
 
   return response
 }
+
+export async function uploadFile(file: File) {
+    const bytes = await file.arrayBuffer()
+    const buffer = Buffer.from(bytes)
+    const base64data = buffer.toString('base64')
+  
+    const octokit = new Octokit({ auth: githubToken })
+  
+    const resp = await octokit.request(
+      `PUT /repos/${process.env.GITHUB_OWNER}/${process.env.GITHUB_REPO}/contents/public/images/${file.name}`, 
+      {
+        owner: process.env.GITHUB_OWNER,
+        repo: process.env.GITHUB_REPO,
+        path: './public/images',
+        message: `Upload image: ${file.name}`,
+        committer: {
+          name: 'Admin',
+          email: process.env.ADMIN_EMAIL || 'admin@example.com'
+        },
+        content: base64data,
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      }
+    )
+  
+    return resp
+  }
+

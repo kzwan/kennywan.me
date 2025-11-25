@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '../../../../configs/auth-options'
 import { getPost } from '../../../admin-backend'
-import { PostEditor } from '../../../admin/components/post-editor'
+import Post from '../../../admin/components/post'
 
 export default async function EditPostPage({
   params,
@@ -21,10 +21,11 @@ export default async function EditPostPage({
   return (
     <div>
       <h2 className="text-2xl font-bold mb-8">Edit Post: {slug}</h2>
-      <PostEditor
-        initialContent={post.content}
+      <Post
+        content={post.content}
         fileName={slug}
         sha={post.sha}
+        path={post.path}
       />
     </div>
   )
