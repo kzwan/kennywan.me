@@ -1,6 +1,7 @@
 import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { notFound } from 'next/navigation'
+import '../../../../styles/prism-atom-light.css'
 
 export const generateStaticParams = async () => 
   allPosts.map((post) => ({ slug: post.slug }))
