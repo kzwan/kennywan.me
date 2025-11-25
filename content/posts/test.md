@@ -20,3 +20,11 @@ This is my first blog post. Welcome to my blog built with Next.js and Contentlay
 
 More content coming soon!
 HIHIHIH
+
+```py
+# Test python function
+for i in range(1, 2):
+    print(i)
+```
+
+
