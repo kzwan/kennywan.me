@@ -19,7 +19,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${karla.className}`}>
         <AuthProvider>
-          <Header/>
           {children}
         </AuthProvider>
       </body>

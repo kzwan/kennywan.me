@@ -1,3 +1,4 @@
+import { Header } from "app/components/header"
 export default function ProjectLayout({
     children,
   }: {
@@ -6,6 +7,7 @@ export default function ProjectLayout({
     return (
       <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
         <div className="flex h-screen flex-col justify-between">
+          <Header/>
           <main className="mb-auto">{children}</main>
           <footer className="py-10 text-center text-sm text-gray-500">
             © 2026 Kenny Wan

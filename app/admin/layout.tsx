@@ -1,3 +1,4 @@
+import { Header } from "app/components/header"
 
 export default function AdminLayout({
     children,
@@ -8,6 +9,7 @@ export default function AdminLayout({
       <div className="min-h-screen">
         <div className="mx-auto max-w-7xl px-4 py-8">
           <h1 className="text-3xl font-bold mb-8">Admin Panel</h1>
+          <Header/>
           {children}
         </div>
       </div>
