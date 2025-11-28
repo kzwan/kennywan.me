@@ -1,6 +1,5 @@
 import './globals.css'
 import { Karla } from 'next/font/google'
-import { Header } from './components/header'
 import { AuthProvider } from './admin/components/auth-provider'
 
 const karla = Karla({ subsets: ['latin'] })
