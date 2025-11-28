@@ -12,10 +12,10 @@ export default function BlogLayout({
 }) {
   return (
     <>
-      <div className="mx-auto max-w-[1050px] px-4 sm:px-6 xl:max-w-[1050px] xl:px-0">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-3xl xl:px-0">
         <div className="flex h-screen flex-col justify-between">
           <Header/>
-          <main className="mb-auto w-5xl mx-auto">{children}</main>
+          <main className="mb-auto w-[743px] mx-auto">{children}</main>
           <ScrollToTop />
           <Footer/>
         </div>

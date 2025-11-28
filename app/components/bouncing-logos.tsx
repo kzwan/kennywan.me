@@ -26,13 +26,13 @@ interface Logo {
 }
 
 const LOGOS = [
-  { src: linkedin, alt: 'LinkedIn', size: 60, link: 'https://linkedin.com/in/kennethzwan' },
-  { src: email, alt: 'Email', size: 60, link: 'mailto:kennethwan@ucla.edu' },
-  { src: spotify, alt: 'Spotify', size: 60, link: 'https://open.spotify.com/user/imkennywan' },
-  { src: discord, alt: 'Discord', size: 60, link: 'https://discord.com' },
-  { src: github, alt: 'GitHub', size: 60, link: 'https://github.com/kzwan' },
-  { src: instagram, alt: 'Instagram', size: 60, link: 'https://instagram.com/kennywan_' },
-  { src: reddit, alt: 'Reddit', size: 60, link: 'https://reddit.com/user/kennywan' },
+  { src: linkedin, alt: 'LinkedIn', size: 40, link: 'https://linkedin.com/in/kennethzwan' },
+  { src: email, alt: 'Email', size: 40, link: 'mailto:kennethwan@ucla.edu' },
+  { src: spotify, alt: 'Spotify', size: 40, link: 'https://open.spotify.com/user/imkennywan' },
+  { src: discord, alt: 'Discord', size: 40, link: 'https://discord.com' },
+  { src: github, alt: 'GitHub', size: 40, link: 'https://github.com/kzwan' },
+  { src: instagram, alt: 'Instagram', size: 40, link: 'https://instagram.com/kennywan_' },
+  { src: reddit, alt: 'Reddit', size: 40, link: 'https://reddit.com/user/kennywan' },
 ]
 
 export function BouncingLogos() {
@@ -165,7 +165,7 @@ export function BouncingLogos() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-24 overflow-visible"
+      className="relative w-full h-16 overflow-visible"
     >
       {logos.map((logo) => (
         <a

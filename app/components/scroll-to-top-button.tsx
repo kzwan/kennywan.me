@@ -53,14 +53,14 @@ export function ScrollToTop() {
   return (
     <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 px-4 py-2 transition-all duration-500 z-50 cursor-pointer ${
+        className={`fixed bottom-6 right-6 px-4 py-2 transition-all duration-500 z-50 cursor-pointer ${
             hasAnimated ? 'transition-all duration-500' : ''
         } ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
         aria-label="Scroll to top"
     >
-        <span className="relative inline-block text-xl font-medium text-gray-500">
+        <span className="relative inline-block text-md font-medium text-gray-500">
             <span className="py-1">↑</span> Back To Top
             {/* <span className="absolute bottom-0 left-0 w-full h-1 bg-[#3a6e48]"></span> */}
         </span>

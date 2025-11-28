@@ -4,6 +4,10 @@ import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { PostCard } from '../components/post-card'
 import { useState, useMemo } from 'react'
+import Image from 'next/image'
+
+import downArrow from '../../content/assets/downarrow.svg'
+
 
 // Array of green shades - cycles from light to dark and back
 // const GREEN_GRADIENT = [
@@ -109,11 +113,15 @@ export default function BlogPage() {
   }, [selectedTag, allPublishedPosts])
 
   const getHeading = () => {
-    return selectedTag ? `#${selectedTag}` : 'Latest'
+    return selectedTag ? `#${selectedTag}` : 'Latest Posts'
   }
 
   const handleTagClick = (tag: string) => {
     setSelectedTag(tag)
+  }
+
+  const handleResetSelectionClick = () => {
+    setSelectedTag('')
     setShowFilters(false)
   }
 
@@ -125,47 +133,59 @@ export default function BlogPage() {
   return (
     <div>
       {/* Header with title and filter buttons */}
-      <div className='flex justify-between items-end mb-6 mt-4'>
-        <h1 className="text-5xl font-semibold">{getHeading()}</h1>
-        
+      <div className='flex justify-between items-end mb-3 mt-4'>
+        <h1 className="text-2xl font-semibold">{getHeading()}</h1>
+
         <div className="flex gap-2 items-center">
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="text-2xl text-black font-medium cursor-pointer"
+            className="text-lg text-black font-medium cursor-pointer flex items-center gap-1"
           >
-            {showFilters ? 'v  Filter' : '>  Filter'}
+            {showFilters ? (
+              <>
+                <Image src={downArrow} alt="down arrow" width={22} height={22} />
+                <span>Filter</span>
+              </>
+            ) : (
+              <>
+                <Image src={downArrow} alt="down arrow" width={22} height={22} className="rotate-270"/>
+                <span>Filter</span>
+              </>
+            )}
           </button>
-          
-          {/* Clear Filter X Icon */}
-          {selectedTag && (
-            <button
-              onClick={() => setSelectedTag('')}
-              className="ml-2 text-lg font-medium px-2 bg-red-500/10 text-red-500 rounded-md hover:bg-red-500/20 transition-colors"
-              title="Clear filter"
-            >
-              <span className=''>✕</span>
-            </button>
-          )}
+
         </div>
       </div>
 
+
       {/* Full-width Collapsible Filter Panel */}
       {showFilters && (
-        <div className="rounded-lg mb-6">
+        <div className="rounded-lg mb-4">
           <div className="flex flex-wrap gap-2">
             {tags.map(tag => (
               <button
                 key={tag}
                 onClick={() => handleTagClick(tag)}
-                className={`font-medium text-md px-3 py-1 rounded-xl transition-all ${
+                className={`font-medium text-xs px-3 py-1 rounded-xl transition-all ${
                   selectedTag === tag
-                    ? 'bg-[#3a6e48] text-white'
-                    : 'bg-[#3a6e48]/10 text-[#3a6e48] hover:bg-[#3a6e48]/20'
+                    ? 'bg-[#3a6e48] text-white cursor-pointer'
+                    : 'bg-[#3a6e48]/10 text-[#3a6e48] hover:bg-[#3a6e48]/20 cursor-pointer'
                 }`}
               >
                 #{tag}
               </button>
             ))}
+            {/* Clear Filter X Icon */}
+            {selectedTag && (
+              <button
+                onClick={() => handleResetSelectionClick()}
+                className="text-sm font-semibold px-2 text-[#CD1C18] rounded-md transition-colors cursor-pointer hover:underline"
+                title="Clear filter"
+              >
+                {/* <span className=''>✕</span> */}
+                <span className=''>Reset selection</span>
+              </button>
+            )}
           </div>
         </div>
       )}
